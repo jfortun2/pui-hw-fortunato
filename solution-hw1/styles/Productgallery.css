@@ -1,0 +1,13 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.center{
+    text-align: center;
+    margin-left: 400px;
+    margin-right: 300px;
+}
+
+.left{
+    text-align: left;
+}
