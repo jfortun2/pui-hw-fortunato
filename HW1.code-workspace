@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "HW1",
+			"path": "../teach-pui-labs-fortunato/homework-materials/HW1"
+		},
+		{
+			"name": "pui-hw-fortunato",
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "pui-hw-fortunato"
+	}
+}
