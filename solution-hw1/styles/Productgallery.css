@@ -4,10 +4,49 @@ body{
 
 .center{
     text-align: center;
-    margin-left: 400px;
-    margin-right: 300px;
+    
 }
 
 .left{
     text-align: left;
+}
+
+#products {
+    background-color: yellow;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.box{
+    width: 205px;
+    display: block;
+    margin:auto;
+    cursor: pointer;
+    text-align: left;
+}
+.box:hover {
+    
+    background-color: yellow;
+    
+}
+
+
+.img{
+    border: black solid;
+}
+
+.img:hover{
+    background-color: yellow;
+    cursor: pointer;
+}
+
+p{
+   line-height: 1 ;
+}
+
+header{
+    border-bottom: 3px solid black;
+    
 }
