@@ -15,12 +15,9 @@ body{
     background-color: yellow;
 }
 
-.underline {
-    text-decoration: underline;
-}
 
 .box{
-    width: 205px;
+    width: 210px;
     display: block;
     margin:auto;
     cursor: pointer;
@@ -49,4 +46,8 @@ p{
 header{
     border-bottom: 3px solid black;
     
+}
+
+.noline{
+    text-decoration: none;
 }

@@ -26,12 +26,25 @@ body{
     text-align: left;
 }
 
+#price{
+    width: 200px;
+    display: inline;
+    margin:auto;
+    text-align: left;
+    padding: 14px;
+}
+
+/*Inspiration from https://www.youtube.com/watch?v=8cExRlT--Zc */
+
 .select{
 
     width: 210px;
+    padding: 5px 10px;
     display: block;
     margin:auto;
     text-align: left;
+    border: 2px solid black;
+    cursor:pointer;
      
 }
 
@@ -41,7 +54,11 @@ button{
     border: black solid 3px;
     padding: 10px;
     width: 150px;;
-    display:inline-block;
+    display:inline;
 
 
+}
+
+a:link {
+    text-decoration: none;
 }
