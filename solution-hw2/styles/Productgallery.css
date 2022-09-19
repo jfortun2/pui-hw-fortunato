@@ -1,0 +1,57 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.center{
+    text-align: center;
+    
+}
+
+.left{
+    text-align: left;
+}
+
+#products {
+    background-color: yellow;
+}
+
+
+.box{
+    width: 210px;
+    display: block;
+    margin:auto;
+    cursor: pointer;
+    text-align: left;
+}
+.box:hover {
+    
+    background-color: yellow;
+    
+}
+
+
+.img{
+    border: black solid;
+}
+
+.img:hover{
+    background-color: yellow;
+    cursor: pointer;
+}
+
+p{
+   line-height: 1 ;
+}
+
+header{
+    border-bottom: 3px solid black;
+    
+}
+
+.noline{
+    text-decoration: none;
+}
+
+a{
+    color:black;
+ }
