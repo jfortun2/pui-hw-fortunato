@@ -39,13 +39,8 @@ body{
     cursor: pointer;
 }
 
-p{
+p {
    line-height: 1 ;
-}
-
-header{
-    border-bottom: 3px solid black;
-    
 }
 
 .noline{
@@ -56,20 +51,20 @@ a{
     color:black;
  }
 
- header {
-    display:flex;
-    flex-direction: row;
-    justify-content: flex-start;
- }
 
  nav {
     display:flex;
     flex-direction: row;
     justify-content: flex-end;
     border-bottom: black solid 3px;
-
  }
 
- nav > a {
-    padding: 2px 15px;
+ nav a {
+    padding: 10px 15px;
  }
+
+
+   
+
+
+
