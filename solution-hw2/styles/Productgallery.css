@@ -55,3 +55,21 @@ header{
 a{
     color:black;
  }
+
+ header {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+ }
+
+ nav {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    border-bottom: black solid 3px;
+
+ }
+
+ nav > a {
+    padding: 2px 15px;
+ }
