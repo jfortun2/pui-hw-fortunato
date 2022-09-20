@@ -1,3 +1,11 @@
+
+ header{
+    border-bottom: 3px solid black;
+    
+}
+
+
+
 body{
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -29,6 +37,43 @@ body{
     
 }
 
+.boxcheckout{
+    width: 210px;
+    display: block;
+    margin:auto;
+    text-align: left;
+}
+
+#price{
+    width: 200px;
+    display: inline;
+    margin:auto;
+    text-align: left;
+    padding: 14px;
+}
+
+button{
+    background-color: yellow;
+    font-family: Arial, Helvetica, sans-serif;
+    border: black solid 3px;
+    padding: 10px;
+    width: 150px;;
+    display:inline;
+
+
+}
+
+.select{
+
+    width: 210px;
+    padding: 5px 10px;
+    display: block;
+    margin:auto;
+    text-align: left;
+    border: 2px solid black;
+    cursor:pointer;
+     
+}
 
 .img{
     border: black solid;
@@ -52,6 +97,35 @@ a{
  }
 
 
+ #cart{
+    background-color: yellow;
+}
+
+
+.line{
+    width: 400px;
+    display: block;
+    margin:auto;
+    border-top: black solid 3px;
+
+}
+
+button{
+    background-color: yellow;
+    font-family: Arial, Helvetica, sans-serif;
+    border: black solid 3px;
+    padding: 5px;
+    width: 100px;;    
+}
+
+.caption{
+    font-size: 10px;
+    text-decoration: underline;
+ }
+
+   
+
+
  nav {
     display:flex;
     flex-direction: row;
@@ -63,8 +137,20 @@ a{
     padding: 10px 15px;
  }
 
+ .imageflex {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
 
-   
+ }
 
 
+#logocontainer{
+    display: flex; 
+    flex-direction: row;
+    justify-content: flex-start;
+}
 
+#logochild{
+    width:60%;
+}
