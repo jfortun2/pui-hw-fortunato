@@ -14,57 +14,6 @@ body{
 }
 
 
-.box{
-    width: 200px;
-    display: block;
-    margin:auto;
-    cursor: pointer;
-    text-align: left;
-    padding: 10px 10px 0px 5px;
-}
-.box:hover {
-    
-    background-color: yellow;
-    
-}
-
-.boxcheckout{
-    width: 210px;
-    display: block;
-    margin:auto;
-    text-align: left;
-}
-
-#price{
-    width: 200px;
-    display: inline;
-    margin:auto;
-    text-align: left;
-    padding: 14px;
-}
-
-button{
-    background-color: yellow;
-    font-family: Arial, Helvetica, sans-serif;
-    border: black solid 3px;
-    padding: 10px;
-    width: 150px;;
-    display:inline;
-
-
-}
-
-.select{
-
-    width: 210px;
-    padding: 5px 10px;
-    display: block;
-    margin:auto;
-    text-align: left;
-    border: 2px solid black;
-    cursor:pointer;
-     
-}
 
 .img{
     border: black solid;
@@ -77,18 +26,24 @@ button{
 
 p {
    line-height: 1 ;
+   font-size: 24px;
+}
+
+h2{
+    font-size: 32px;
 }
 
 .noline{
     text-decoration: none;
 }
 
-a{
+a {
     color:black;
+    font-size: 24px;
  }
 
 
- #cart{
+#cart{
     background-color: yellow;
 }
 
@@ -97,28 +52,10 @@ a{
  }
 
  
-.line{
-    width: 400px;
-    display: block;
-    margin:auto;
-    border-top: black solid 3px;
-
-}
-
-button{
-    background-color: yellow;
-    font-family: Arial, Helvetica, sans-serif;
-    border: black solid 3px;
-    padding: 5px;
-    width: 100px;;    
-}
-
-.caption{
-    font-size: 10px;
-    text-decoration: underline;
- }
 
 /*product gallery*/
+
+
 
 header{
     display: flex;
@@ -167,9 +104,62 @@ nav a{
 
 
 
-
 /*product details*/
 
+.boxselect{
+    width: 200px;
+    display: block;
+    cursor: pointer;
+    text-align: left;
+    padding: 0px 0px 10px;
+    margin-bottom:4px;
+}
+
+
+.box{
+    width: 300px;
+    display: block;
+    cursor: pointer;
+    text-align: left;
+    padding: 10px 10px 10px 10px;
+    margin-bottom:4px;
+}
+.box:hover {
+    
+    background-color: yellow;
+    
+}
+
+.boxcheckout{
+    width: 210px;
+    display: block;
+    margin:auto;
+    text-align: left;
+}
+
+#price{
+    width: 200px;
+    display: inline;
+    margin:auto;
+    text-align: left;
+    padding: 0px 14px 0px 20px;
+}
+
+button{
+    background-color: yellow;
+    font-family: Arial, Helvetica, sans-serif;
+    border: black solid 3px;
+    padding: 5px;
+    width: 150px;;    
+}
+
+
+.boxrightdetails{
+    display:block;
+    width: 500px;
+
+
+}
 
 .detailscontainer{
     display: flex; 
@@ -177,13 +167,149 @@ nav a{
     justify-content: center;
 }
 
+
  .leftdetails{
-    width: 50%;
+    width: 60%;
+    text-align: right;
 }
 
 .rightdetails{
-    width: 50%;
+    width: 40%;
+    text-align: left;
+    padding-left: 50px;
 }
 
-/* make one big container
 
+button{
+    background-color: yellow;
+    font-family: Arial, Helvetica, sans-serif;
+    border: black solid 3px;
+    padding: 10px;
+    width: 100px;;
+    display:inline;
+
+
+}
+
+.select{
+
+    width: 210px;
+    padding: 10px 10px;
+    display: block;
+    text-align: left;
+    border: 2px solid black;
+    cursor:pointer;
+    margin-bottom: 50px;
+    font-size: 20px;
+     
+}
+
+
+#customizetext{
+    margin-top: 0;
+}
+
+
+
+
+
+
+/* Shopping Cart*/
+
+
+
+
+
+.caption{
+    font-size: 10px;
+    text-decoration: underline;
+
+ }
+
+ .cartright{
+  
+    flex:4;
+
+ }
+ 
+.cartleft{
+    flex:2;
+}
+
+.cartitems{
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+
+.itemimage{
+    margin: 0px 50px 0px 0px;
+
+}
+
+.itemcaption{
+
+    flex: 1 0 auto;
+}
+
+.itemdescription{
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.itemdescriptionline{
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-bottom: 5px solid black;
+}
+
+
+.itemprice{
+
+    padding: 0px 50px;
+}
+
+
+.cartprice {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.total{
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+
+
+}
+
+.buttoncart{
+    display: flex; 
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-right: 20px;
+
+}
+
+.cartnumber{
+    display: flex; 
+    flex-direction: row;
+    padding-right: 20px;
+
+}
+
+.leftcartprice{
+
+    flex:2;
+
+}
+
+.rightcartprice{
+
+    flex: 4;
+
+}
