@@ -171,12 +171,18 @@ nav a{
 /*product details*/
 
 
+.detailscontainer{
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+}
+
  .leftdetails{
     width: 50%;
 }
 
 .rightdetails{
-    width:50%;
+    width: 50%;
 }
 
 /* make one big container
