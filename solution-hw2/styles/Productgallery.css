@@ -126,16 +126,20 @@ button{
    
 
 
- nav {
+ header {
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-end;
     border-bottom: black solid 3px;
  }
 
- nav a {
+ header a {
     padding: 10px 15px;
  }
+
+
+
+ 
 
  .imageflex {
     display: flex; 
@@ -145,12 +149,5 @@ button{
  }
 
 
-#logocontainer{
-    display: flex; 
-    flex-direction: row;
-    justify-content: flex-start;
-}
+/* make one big container
 
-#logochild{
-    width:60%;
-}
