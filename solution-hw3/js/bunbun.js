@@ -11,10 +11,7 @@ function updatePrice() {
 
 }
 
-function updateText(){
-    let output = document.getElementById("glazingOptions").value;
-    document.querySelector('update').textContent = ouput;
-}
+
 
 //assign value to drop downs
 //add to starting price
