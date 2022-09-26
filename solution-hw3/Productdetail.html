@@ -15,36 +15,36 @@
       <a class="logo" href="Productgallery.html"> <img src="./Assets/logo/logo-01.svg" width="350" alt="cartoon illustration of a cinnamon bun."/> </a>
 
       <div class="rightheader">
-      <nav>
-      <a href = "./Productgallery.html" class="noline" id="products"><b><mark> PRODUCTS</mark></b></a>
-      <a href = "Shoppingcart.html" class="noline">CART</a>
-      </nav>
+        <nav>
+          <a href = "./Productgallery.html" class="noline" id="products"><b><mark> PRODUCTS</mark></b></a>
+          <a href = "Shoppingcart.html" class="noline">CART</a>
+        </nav>
 
-      <div class="flexline"></div>
-      
+          <div class="flexline">
+
+          </div>
  
-      <br>
-      <h2 > Original cinnamon roll</h2>
+            <br>
+            <h2 > Original cinnamon roll</h2>
 
       </div>
 
     </header>
 
-
-
       <main class = "detailscontainer">
         <div class="leftdetails">
-       
 
           <img src="./Assets/products/original-cinnamon-roll.jpg" class="img" width="500" alt="Cinnamon roll on white dish with cinnomon sticks.">
+       
         </div>
        
         <div class="rightdetails">
-            <br> <br>
             
+          <br> <br>
+          
             <p id="customizetext">Customize our delicious, <br> hand-made cinammon roll to <br> your liking!</p>
 
-            <p class="boxselect">Glazing: </p>
+            <p class="boxselect" id="glazingOptions" onchange="glazingChange(this)">Glazing: </p>
 
               <select class="select">
                 <option value="0">Keep original</option>
@@ -53,9 +53,7 @@
                 <option value="3">Double chocolate</option>
               </select>
 
-
             <p class="boxselect"> Pack size: </p>
-           
 
               <select class="select">
                 <option value="0">1</option>
@@ -67,6 +65,7 @@
               <br>
 
             <p id="price"> <b> $2.49 </b></p>
+            
             <button type="button"><b>Add to Cart</b></button>
 
           </div>
