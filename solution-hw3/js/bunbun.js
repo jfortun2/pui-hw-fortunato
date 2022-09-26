@@ -17,3 +17,4 @@ function updatePrice() {
 //add to starting price
 //multiply by amount chosen
 //update price at bottom on dropdown change
+//maybe try element.innertext = newText
