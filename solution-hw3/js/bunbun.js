@@ -4,22 +4,22 @@ let allGlaze = [
 
     {
     glaze: 'Keep original',
-    value: '0.00',
+    price: 0.00,
 },
 
 {
     glaze: 'Sugar milk',
-    value: '0.00',
+    price: 0.00,
 },
 
 {
     glaze: 'Vanilla milk',
-    value: '0.50',
+    price: 0.50,
 },
 
 {
     glaze: 'Double chocolate',
-    value: '1.50',
+    price: 1.50,
 }
 ];
 
@@ -33,58 +33,43 @@ for (let i = 0; i < allGlaze.length; i++) {
     glazeSelection.textContent = allGlaze[i].glaze;
     glazeOptions.appendChild(glazeSelection);
 
-
-
-
-    // let glazeValue = document.querySelector('#price');
-    // element.text = glazeSelection.glaze;
-    // element.value = glazeSelection.value;
-    // select.add(element);
-}
-
-//updating text to display value
-function displayValue(glaze) {
-    let glazeValue = document.querySelector('#price');
-    glazeValue.innerText = glaze.value;
 }
 
 
 //display the value from the selected glaze
-function onSelectValueChange() {
-    console.log("you selected" + this.value);
-    let glazeIndex = parseInt(this.value);
-    let glazeToDisplay = allGlaze[glazeIndex];
-    displayValue(glazeToDisplay);
+// function onSelectValueChange() {
+//     console.log("you selected" + this.value);
+//     let glazeIndex = parseInt(this.value);
+//     let glazeToDisplay = allGlaze[glazeIndex];
+//     displayValue(glazeToDisplay);
 
-}
+// }
 
-
-
-//update text on drop-down menu change
-let selectElement = document.querySelector ('#glaze-select');
-selectElement.addEventListener('change', onSelectValueChange);
+// //update text on drop-down menu change
+// let selectElement = document.querySelector ('#glaze-select');
+// selectElement.addEventListener('change', onSelectValueChange);
 
 
 let allPackSize = [
    
     {
         number: "1",
-        value: "1"
+        multiple: 1
     },
 
     {
         number: "3",
-        value: "3",
+        multiple: 3,
     },
 
     {
         number: "6",
-        value: "5",
+        multiple: 5,
     },
 
     {
         number: "12",
-        value: "10",
+        multiple: 10,
     }
 
 
@@ -103,50 +88,47 @@ for (let i = 0; i < allGlaze.length; i++) {
 
 //create variables for price calculation
 let basePrice = 2.49;
-let
+let glazeChoice = 0;
+let packChoice = 1;
+let finalPrice;
 
+//final price computation
 
+function glazingChange(element){
+    console.log("hello")
+    const priceChange = element.value;
 
+    //glaze dropdown menu
+    
+    for (i = 0; i < allGlaze.length; i++){
+        console.log("in 1st loop")
+        if (allGlaze[i].glaze == element.value) {
 
+            glazeChoice = allGlaze[i].price;
 
+        }
+    }
 
+    //price dropdown menu
 
+    for (i = 0; i < allPackSize.length; i++){
+        console.log("in 2nd loop")
+        if (allPackSize[i].packSize == element.value) {
+            
+            packChoice = allPackSize[i].multiple;
+        }
+    }
+    
+    //final price after selections
 
+    finalPrice = ((basePrice + glazeChoice) * packChoice).toFixed(2)
+    console.log("in finalprice");
 
+    //updating the text
 
-
-
-
-//display the value from the selected pack size
-function onSelectNumberChange() {
-    console.log("you selected" + this.value);
-
-    let sizeIndex = parseInt(this.value);
-    let sizeToDisplay = allPackSize[sizeIndex];
-
-    // display price?
+    document.querySelector("#price").innerHTML = "$" + finalPrice;
 }
 
 
-//update value on drop-down menu change
-let selectNumber = document.querySelector ('#number-select');
-selectNumber.addEventListener('change', onSelectNumberChange);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//calculate final price
