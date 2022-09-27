@@ -86,29 +86,24 @@ let selectNumber = document.querySelector ('#number-select');
 selectNumber.addEventListener('change', onSelectNumberChange);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-function glazingChange(element){
-    const priceChange = element.value
+//updating text to display value
+function displayValue(glaze){
+    let glazeValue = document.querySelector('#price');
+    glazeValue.innerText = glaze.value;
 }
 
 
 
 
 
-// for number chosen 
 
 
 
-//multiply by amount chosen
-//update price at bottom on dropdown change
+
+
+
+
+
+
+
+//calculate final price
