@@ -46,26 +46,25 @@
 
             <p class="boxselect">Glazing: </p>
 
-              <select class="select" id="glazingOptions" onchange="getGlazeValue();">
-                <option value="0.00">Keep original</option>
-                <option value="0.00">Sugar milk</option>
-                <option value="0.50">Vanilla milk</option>
-                <option value="1.50">Double chocolate</option>
+              <select class="select" id = "glaze-select" onchange="glazingChange(this)">
+                <option value = "0">Keep original</option>
+                <option value = "1">Sugar milk</option>
+                <option value = "2">Vanilla milk</option>
+                <option value = "3">Double chocolate</option>
               </select>
 
             <p class="boxselect"> Pack size: </p>
 
               <select class="select">
-                <option value="1">1</option>
-                <option value="3">3</option>
-                <option value="6">6</option>
-                <option value="12">12</option>
+                <option>1</option>
+                <option>3</option>
+                <option>6</option>
+                <option>12</option>
               </select>
              
               <br>
 
-            <p id="price" value="2.49" onclick="updateText()" > <b> $2.49 </b>
-            </p>
+            <p id="price"> <b> </b> </p>
             
             <button type="button"><b>Add to Cart</b></button>
 
