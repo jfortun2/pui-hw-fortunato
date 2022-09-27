@@ -25,7 +25,7 @@ let allGlaze = [
 ];
 
 
-
+//Inspiration from https://www.geeksforgeeks.org/how-to-create-a-dropdown-list-with-array-values-using-javascript/
 //Populating the Glazing Drop Down
 let glazeOptions= document.querySelector('#glaze-select');
 
@@ -63,6 +63,7 @@ let allPackSize = [
 ];
 
 
+//Inspiration from https://www.geeksforgeeks.org/how-to-create-a-dropdown-list-with-array-values-using-javascript/
 //Populating the Pack Size
 let packOptions= document.querySelector('#number-select');
 
