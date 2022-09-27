@@ -1,6 +1,4 @@
-function glazingChange(element){
-    const priceChange = element.value
-}
+
 
 let allGlaze = [
 
@@ -25,12 +23,13 @@ let allGlaze = [
 }
 ];
 
-
+//updating text to display value
 function displayValue(glaze){
     let glazeValue = document.querySelector('#price');
     glazeValue.innerText = glaze.value;
 }
 
+//display the value from the selected glaze
 function onSelectValueChange() {
     console.log("you selected" + this.value);
 
@@ -42,10 +41,49 @@ function onSelectValueChange() {
 
 }
 
+//update text on drop-down menu change
 let selectElement = document.querySelector ('#glaze-select');
 selectElement.addEventListener('change', onSelectValueChange);
 
 
+let allPackSize = [
+   
+    {
+        number: "1",
+        value: "1"
+    },
+
+    {
+        number: "3",
+        value: "3",
+    },
+
+    {
+        number: "6",
+        value: "5",
+    },
+
+    {
+        number: "12",
+        value: "10",
+    }
+
+
+];
+
+
+//display the value from the selected pack size
+function onSelectNumberChange() {
+    console.log("you selected" + this.value);
+
+    let sizeIndex = parseInt(this.value);
+    let sizeToDisplay = allPackSize[sizeIndex];
+}
+
+
+//update value on drop-down menu change
+let selectNumber = document.querySelector ('#number-select');
+selectNumber.addEventListener('change', onSelectNumberChange);
 
 
 
@@ -55,8 +93,22 @@ selectElement.addEventListener('change', onSelectValueChange);
 
 
 
-//assign value to drop downs
-//add to starting price
+
+
+
+
+
+function glazingChange(element){
+    const priceChange = element.value
+}
+
+
+
+
+
+// for number chosen 
+
+
+
 //multiply by amount chosen
 //update price at bottom on dropdown change
-//maybe try element.innertext = newText
