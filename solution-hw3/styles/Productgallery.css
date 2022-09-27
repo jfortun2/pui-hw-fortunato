@@ -1,4 +1,4 @@
-
+/* Whole website */
 
 body{
     font-family: Arial, Helvetica, sans-serif;
@@ -55,8 +55,6 @@ a {
 
 /*product gallery*/
 
-
-
 header{
     display: flex;
     flex-direction: row;
@@ -75,7 +73,6 @@ nav a{
     padding-right: 50px;
     padding-left: 50px;
 }
-
 
 .flexline{
     width:800px;
@@ -124,6 +121,7 @@ nav a{
     padding: 10px 10px 10px 10px;
     margin-bottom:4px;
 }
+
 .box:hover {
     
     background-color: yellow;
@@ -143,14 +141,6 @@ nav a{
     margin:auto;
     text-align: left;
     padding: 0px 14px 0px 20px;
-}
-
-button{
-    background-color: yellow;
-    font-family: Arial, Helvetica, sans-serif;
-    border: black solid 3px;
-    padding: 5px;
-    width: 150px;;    
 }
 
 
@@ -215,10 +205,6 @@ button{
 
 
 /* Shopping Cart*/
-
-
-
-
 
 .caption{
     font-size: 10px;

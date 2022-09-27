@@ -26,6 +26,7 @@ let allGlaze = [
 
 
 //Inspiration from https://www.geeksforgeeks.org/how-to-create-a-dropdown-list-with-array-values-using-javascript/
+
 //Populating the Glazing Drop Down
 let glazeOptions= document.querySelector('#glaze-select');
 
@@ -35,7 +36,6 @@ for (let i = 0; i < allGlaze.length; i++) {
     glazeOptions.appendChild(glazeSelection);
 
 }
-
 
 
 let allPackSize = [
@@ -64,6 +64,7 @@ let allPackSize = [
 
 
 //Inspiration from https://www.geeksforgeeks.org/how-to-create-a-dropdown-list-with-array-values-using-javascript/
+
 //Populating the Pack Size
 let packOptions= document.querySelector('#number-select');
 
@@ -80,8 +81,7 @@ let glazeChoice = 0;
 let packChoice = 1;
 let finalPrice;
 
-//final price computation
-
+//final price update
 function glazingChange(element){
 
     const priceChange = element.value;
