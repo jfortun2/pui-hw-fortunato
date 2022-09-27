@@ -1,4 +1,5 @@
 
+//inspiration from https://github.com/interactive-structures/teach-pui/tree/main/in-lab-examples/puinote-lab04/select-example
 
 let allGlaze = [
 
@@ -36,19 +37,6 @@ for (let i = 0; i < allGlaze.length; i++) {
 }
 
 
-//display the value from the selected glaze
-// function onSelectValueChange() {
-//     console.log("you selected" + this.value);
-//     let glazeIndex = parseInt(this.value);
-//     let glazeToDisplay = allGlaze[glazeIndex];
-//     displayValue(glazeToDisplay);
-
-// }
-
-// //update text on drop-down menu change
-// let selectElement = document.querySelector ('#glaze-select');
-// selectElement.addEventListener('change', onSelectValueChange);
-
 
 let allPackSize = [
    
@@ -72,7 +60,6 @@ let allPackSize = [
         multiple: 10,
     }
 
-
 ];
 
 
@@ -95,13 +82,13 @@ let finalPrice;
 //final price computation
 
 function glazingChange(element){
-    console.log("hello")
+
     const priceChange = element.value;
 
     //glaze dropdown menu
     
     for (i = 0; i < allGlaze.length; i++){
-        console.log("in 1st loop")
+        
         if (allGlaze[i].glaze == element.value) {
 
             glazeChoice = allGlaze[i].price;
@@ -112,17 +99,17 @@ function glazingChange(element){
     //price dropdown menu
 
     for (i = 0; i < allPackSize.length; i++){
-        console.log("in 2nd loop")
-        if (allPackSize[i].packSize == element.value) {
+        
+        if (allPackSize[i].number == element.value) {
             
             packChoice = allPackSize[i].multiple;
+
         }
     }
     
     //final price after selections
 
-    finalPrice = ((basePrice + glazeChoice) * packChoice).toFixed(2)
-    console.log("in finalprice");
+    finalPrice = ((basePrice + glazeChoice) * packChoice).toFixed(2);
 
     //updating the text
 
