@@ -118,5 +118,6 @@ function glazingChange(element){
 }
 
 
-
+document.querySelector("#detailsheader").innerText="Apple Cinnamin Roll";
+document.querySelector(".leftdetails").src = 
 
