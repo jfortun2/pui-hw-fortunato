@@ -14,24 +14,28 @@
       
       <a class="logo" href="Productgallery.html"> <img src="./Assets/logo/logo-01.svg" width="350" alt="cartoon illustration of a cinnamon bun."/> </a>
 
+      
+      <!-- Flexbox for navigation -->
       <div class="rightheader">
         <nav>
           <a href = "./Productgallery.html" class="noline" id="products"><b><mark> PRODUCTS</mark></b></a>
           <a href = "Shoppingcart.html" class="noline">CART</a>
         </nav>
 
+          <!-- Line underneath navigation -->
           <div class="flexline">
 
           </div>
  
             <br>
-            <h2 > Original cinnamon roll</h2>
+            <h2> Original cinnamon roll</h2>
 
       </div>
 
     </header>
 
       <main class = "detailscontainer">
+        
         <div class="leftdetails">
 
           <img src="./Assets/products/original-cinnamon-roll.jpg" class="img" width="500" alt="Cinnamon roll on white dish with cinnomon sticks.">
@@ -44,23 +48,17 @@
           
             <p id="customizetext">Customize our delicious, <br> hand-made cinammon roll to <br> your liking!</p>
 
-            <p class="boxselect">Glazing: </p>
+              <p class="boxselect">Glazing: </p>
 
-              <select class="select" id = "glaze-select" onchange="glazingChange(this)">
-                <!-- <option value = "0">Keep original</option>
-                <option value = "1">Sugar milk</option>
-                <option value = "2">Vanilla milk</option>
-                <option value = "3">Double chocolate</option> -->
-              </select>
+                <select class="select" id = "glaze-select" onchange="glazingChange(this)">
+             
+                </select>
 
             <p class="boxselect"> Pack size: </p>
 
-              <select class="select" id = "number-select"  onchange="glazingChange(this)">
-                <!-- <option value = "0">1</option>
-                <option value = "1">3</option>
-                <option value = "2">6</option>
-                <option value = "3">12</option> -->
-              </select>
+                <select class="select" id = "number-select"  onchange="glazingChange(this)">
+             
+                </select>
              
               <br>
 
@@ -69,12 +67,9 @@
             <button type="button"><b>Add to Cart</b></button>
 
           </div>
-          
-        
       
       </main>
 
-
-
   </body>
+
 </html>
