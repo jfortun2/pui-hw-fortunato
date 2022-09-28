@@ -110,16 +110,48 @@ function glazingChange(element){
     
     //final price after selections
 
-    finalPrice = ((basePrice + glazeChoice) * packChoice).toFixed(2);
-
+    finalPrice = (((rolls[rollType].basePrice) + glazeChoice) * packChoice).toFixed(2);
     //updating the text
 
     document.querySelector("#price").innerHTML = "$" + finalPrice;
 }
 
-
-document.querySelector("#detailsheader").innerText="Apple Cinnamin Roll";
-console.log(document.querySelector(".leftdetails").src = "Assets/products/apple-cinnamon-rolls.jpg");
+//HW 4
 
 
+let cart = [];
+//make cart array 
 
+class Roll {
+
+    constructor(rollType, rollGlazing, packSize, basePrice) {
+        this.type = rollType;
+        this.glazing =  rollGlazing;
+        this.size = packSize;
+        this.basePrice = basePrice;
+    }
+
+}
+
+
+const queryString = window.location.search;
+const params = new URLSearchParams(queryString);
+const rollType = params.get("roll");
+
+
+document.querySelector("#detailsheader").innerText = rollType + " " + "Cinnamon Roll";
+document.querySelector("#applepicture").src = rolls[rollType].imageFile;
+document.querySelector("#price").innerText = "$" + rolls[rollType].basePrice;
+
+
+
+function toCart() {
+    console.log("function is running");
+
+    let r1 = new Roll(//find your type, glazing, size, baseprice);
+    console.log(r1);
+
+    //add to cart
+    cart.push(r1);
+
+}
