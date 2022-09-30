@@ -148,10 +148,10 @@ document.querySelector("#price").innerText = "$" + rolls[rollType].basePrice;
 function toCart() {
     console.log("function is running");
 
-    let r1 = new Roll(//find your type, glazing, size, baseprice);
-    console.log(r1);
+    // let r1 = new Roll(find your type, glazing, size, baseprice);
+    // console.log(r1);
 
-    //add to cart
-    cart.push(r1);
+    // //add to cart
+    // cart.push(r1);
 
 }
