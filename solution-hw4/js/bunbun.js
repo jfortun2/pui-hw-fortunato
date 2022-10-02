@@ -117,6 +117,7 @@ function glazingChange(element){
     document.querySelector("#price").innerHTML = "$" + finalPrice;
 }
 
+
 //HW 4
 
 
@@ -135,6 +136,9 @@ class Roll {
 }
 
 
+
+//Talked to Joy Mukherjee about item selection
+
 const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
 const rollType = params.get("roll");
@@ -145,9 +149,8 @@ document.querySelector("#applepicture").src = rolls[rollType].imageFile;
 document.querySelector("#price").innerText = "$" + rolls[rollType].basePrice;
 
 
-
+//Creating new roll object in cart
 function toCart() {
-    console.log("function is running");
 
     let r1 = new Roll(rollType, glazeChoice, packChoice, rolls[rollType].basePrice)
     console.log(r1);
