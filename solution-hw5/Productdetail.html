@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="./styles/Productgallery.css">
+    <script src = "js/rollsData.js" defer></script>
+    <script src= "js/bunbun.js" defer></script>
+  </head>
+  
+  <body>
+    
+    <header>
+      
+      <a class="logo" href="Productgallery.html"> <img src="./Assets/logo/logo-01.svg" width="350" alt="cartoon illustration of a cinnamon bun."/> </a>
+
+      
+      <!-- Flexbox for navigation -->
+      <div class="rightheader">
+        <nav>
+          <a href = "./Productgallery.html" class="noline" id="products"><b><mark> PRODUCTS</mark></b></a>
+          <a href = "Shoppingcart.html" class="noline">CART</a>
+        </nav>
+
+          <!-- Line underneath navigation -->
+          <div class="flexline">
+
+          </div>
+ 
+            <br>
+            <h2 id="detailsheader"> Original cinnamon roll</h2>
+
+      </div>
+
+    </header>
+
+      <main class = "detailscontainer">
+        
+        <div class="leftdetails">
+
+          <img id = "applepicture" src="./Assets/products/original-cinnamon-roll.jpg" class="img" width="500" alt="Cinnamon roll on white dish with cinnomon sticks.">
+       
+        </div>
+       
+        <div class="rightdetails">
+            
+          <br> <br>
+          
+            <p id="customizetext">Customize our delicious, <br> hand-made cinammon roll to <br> your liking!</p>
+
+              <p class="boxselect">Glazing: </p>
+
+                <select class="select" id = "glaze-select" onchange="glazingChange(this)">
+             
+                </select>
+
+            <p class="boxselect"> Pack size: </p>
+
+                <select class="select" id = "number-select"  onchange="glazingChange(this)">
+             
+                </select>
+             
+              <br>
+
+            <p id="price"> <b> </b> </p>
+            
+            <button type="button" onclick="createObjects()"><b>Add to Cart</b></button>
+            
+          </div>
+      
+      </main>
+
+  </body>
+
+</html>
