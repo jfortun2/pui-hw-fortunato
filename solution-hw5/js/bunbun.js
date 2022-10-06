@@ -109,6 +109,7 @@ function glazingChange(element){
 
         }
     }
+
     
     //final price after selections
 
@@ -122,9 +123,6 @@ function glazingChange(element){
 //HW 4
 
 
-//make cart array 
-let cart = [];
-
 class Roll {
 
     constructor(rollType, rollGlazing, packSize, basePrice) {
@@ -132,6 +130,8 @@ class Roll {
         this.glazing =  rollGlazing;
         this.size = packSize;
         this.basePrice = basePrice;
+        this.calculatedPrice = ((basePrice + rollGlazing) * packSize).toFixed(2);
+        this.element = null;
     }
 
 }
@@ -150,14 +150,70 @@ document.querySelector("#applepicture").src = rolls[rollType].imageFile;
 document.querySelector("#price").innerText = "$" + rolls[rollType].basePrice;
 
 
+
+
+
+//Hw 5
+
+//make cart set 
+let cartSet = new Set();
+
+
 //Creating roll objects
 
 let calculatedPrice = (Roll.basePrice + glazeChoice) * packChoice.toFixed(2);
 
-function createObjects() {
-let originalRoll = new Roll ("Original", "Sugar Milk", 1,  basePrice)
- console.log(originalRoll);
+//Creating roll objects
+
+function createNewRoll() {
+let roll = new Roll (rollType, glazeChoice, packChoice , rolls[rollType].basePrice, calculatedPrice)
+cartSet.add(roll);
+console.log(roll);
+return roll;
+
 }
+
+
+function createElement(roll) {
+    //cloning the roll template
+    const template = document.querySelector(".itemdescription");
+    const clone = template.textContent.cloneNode(true);
+
+    //connecting to roll.element
+    roll.element = clone.querySelector(".roll"); //WHAT IS MY ROLL ELEMENT
+
+    //delete
+    const btnRemove = roll.element.querySelector(".caption");
+    console.log(btnRemove);
+    btnRemove.addEventListener('click', () => {
+        deleteNote(roll); //QUESTION
+    });
+    
+
+//adding roll to the DOM 
+//finding parent
+
+const rollListElement = document.querySelector (".cartright");
+rollListElement.prepend(roll.element);
+
+//populating the roll clone with the actual notecard content
+updateElement(roll);
+
+}
+
+function updateElement(roll) {
+    let rollImageElement.src = rolls[rollType].imageFile;
+    let rollNameElement =
+    let rollGlazingElement =
+    let rollPackSizeElement =
+    let rollCalculatedPricElement = 
+
+
+
+}
+
+
+
 
 
 
@@ -168,8 +224,6 @@ function toCart() {
 
 
 
-
-
     // let r1 = new Roll(rollType, glazeChoice, packChoice, rolls[rollType].basePrice)
     // console.log(r1);
 
@@ -177,3 +231,7 @@ function toCart() {
     cart.push();
 
 }
+
+
+
+
