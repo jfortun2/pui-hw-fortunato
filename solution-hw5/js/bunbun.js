@@ -4,28 +4,29 @@
 let allGlaze = [
 
     {
-    glaze: 'Keep original',
-    price: 0.00,
-},
+        glaze: 'Keep original',
+        price: 0.00,
+    },
 
-{
-    glaze: 'Sugar milk',
-    price: 0.00,
-},
+    {
+        glaze: 'Sugar milk',
+        price: 0.00,
+    },
 
-{
-    glaze: 'Vanilla milk',
-    price: 0.50,
-},
+    {
+        glaze: 'Vanilla milk',
+        price: 0.50,
+    },
 
-{
-    glaze: 'Double chocolate',
-    price: 1.50,
-}
+    {
+        glaze: 'Double chocolate',
+        price: 1.50,
+    }
 ];
 
 
 //Inspiration from https://www.geeksforgeeks.org/how-to-create-a-dropdown-list-with-array-values-using-javascript/
+
 
 //Populating the Glazing Drop Down
 let glazeOptions = document.querySelector('#glaze-select');
@@ -34,13 +35,15 @@ let glazeOptions = document.querySelector('#glaze-select');
 for (let i = 0; i < allGlaze.length; i++) {
     let glazeSelection = document.createElement("option");
     glazeSelection.textContent = allGlaze[i].glaze;
+    console.log(document.querySelector('#glaze-select'));
     glazeOptions.appendChild(glazeSelection);
 
 }
 
+//having proble with null 
 
 let allPackSize = [
-   
+
     {
         number: "1",
         multiple: 1
@@ -67,7 +70,7 @@ let allPackSize = [
 //Inspiration from https://www.geeksforgeeks.org/how-to-create-a-dropdown-list-with-array-values-using-javascript/
 
 //Populating the Pack Size
-let packOptions= document.querySelector('#number-select');
+let packOptions = document.querySelector('#number-select');
 
 for (let i = 0; i < allGlaze.length; i++) {
     let packSelection = document.createElement("option");
@@ -83,14 +86,14 @@ let packChoice = 1;
 let finalPrice;
 
 //final price update
-function glazingChange(element){
+function glazingChange(element) {
 
     const priceChange = element.value;
 
     //glaze dropdown menu
-    
-    for (i = 0; i < allGlaze.length; i++){
-        
+
+    for (i = 0; i < allGlaze.length; i++) {
+
         if (allGlaze[i].glaze == element.value) {
 
             glazeChoice = allGlaze[i].price;
@@ -101,16 +104,16 @@ function glazingChange(element){
 
     //price dropdown menu
 
-    for (i = 0; i < allPackSize.length; i++){
-        
+    for (i = 0; i < allPackSize.length; i++) {
+
         if (allPackSize[i].number == element.value) {
-            
+
             packChoice = allPackSize[i].multiple;
 
         }
     }
 
-    
+
     //final price after selections
 
     finalPrice = (((rolls[rollType].basePrice) + glazeChoice) * packChoice).toFixed(2);
@@ -120,6 +123,9 @@ function glazingChange(element){
 }
 
 
+
+
+
 //HW 4
 
 
@@ -127,11 +133,11 @@ class Roll {
 
     constructor(rollType, rollGlazing, packSize, basePrice) {
         this.type = rollType;
-        this.glazing =  rollGlazing;
+        this.glazing = rollGlazing;
         this.size = packSize;
         this.basePrice = basePrice;
         this.calculatedPrice = ((basePrice + rollGlazing) * packSize).toFixed(2);
-        this.element = null;
+        // this.element = null;
     }
 
 }
@@ -144,8 +150,9 @@ const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
 const rollType = params.get("roll");
 
+console.log(rollType)
 
-document.querySelector("#detailsheader").innerText = rollType + " " + "Cinnamon Roll";
+document.querySelector("#detailsheader").innerHTML = rollType + " " + "Cinnamon Roll";
 document.querySelector("#applepicture").src = rolls[rollType].imageFile;
 document.querySelector("#price").innerText = "$" + rolls[rollType].basePrice;
 
@@ -166,50 +173,54 @@ let calculatedPrice = (Roll.basePrice + glazeChoice) * packChoice.toFixed(2);
 //Creating roll objects
 
 function createNewRoll() {
-let roll = new Roll (rollType, glazeChoice, packChoice , rolls[rollType].basePrice, calculatedPrice)
-cartSet.add(roll);
-console.log(roll);
-return roll;
+    let roll = new Roll(rollType, glazeChoice, packChoice, rolls[rollType].basePrice, calculatedPrice)
+    cartSet.add(roll);
+    console.log(roll);
+    return roll;
 
 }
 
 
 function createElement(roll) {
     //cloning the roll template
-    const template = document.querySelector(".itemdescription");
+    const template = document.querySelector("#templateCart");
     const clone = template.textContent.cloneNode(true);
 
     //connecting to roll.element
-    roll.element = clone.querySelector(".roll"); //WHAT IS MY ROLL ELEMENT
+    let element = clone.querySelector(".itemdescription"); //WHAT IS MY ROLL ELEMENT
+    //roll.element = clone.querySelector(".roll"); //WHAT IS MY ROLL ELEMENT
 
     //delete
     const btnRemove = roll.element.querySelector(".caption");
     console.log(btnRemove);
     btnRemove.addEventListener('click', () => {
-        deleteNote(roll); //QUESTION
+        deleteNote(roll);
     });
-    
 
-//adding roll to the DOM 
-//finding parent
 
-const rollListElement = document.querySelector (".cartright");
-rollListElement.prepend(roll.element);
+    //adding roll to the DOM 
+    //finding parent
 
-//populating the roll clone with the actual notecard content
-updateElement(roll);
+    const rollListElement = document.querySelector("#templateCart");
+    rollListElement.prepend(element);
+
+    //populating the roll clone with the actual notecard content
+    updateElement(roll);
 
 }
 
 function updateElement(roll) {
-    let rollImageElement.src = rolls[rollType].imageFile;
-    let rollNameElement =
-    let rollGlazingElement =
-    let rollPackSizeElement =
-    let rollCalculatedPricElement = 
+    const rollImageElement = roll.element.querySelector(".roll-thumbnail");
+    let rollNameElement = roll.element.querySelector()
+    let rollGlazingElement
+    let rollPackSizeElement
+    let rollCalculatedPricElement
 
+}
 
-
+function removeRoll(roll) {
+    roll.element.remove();
+    cartSet.delete(roll);
 }
 
 
@@ -217,20 +228,18 @@ function updateElement(roll) {
 
 
 
-
-
-//Creating new roll object in cart
-function toCart() {
+// //Creating new roll object in cart
+// function toCart() {
 
 
 
-    // let r1 = new Roll(rollType, glazeChoice, packChoice, rolls[rollType].basePrice)
-    // console.log(r1);
+//     // let r1 = new Roll(rollType, glazeChoice, packChoice, rolls[rollType].basePrice)
+//     // console.log(r1);
 
-    //add to cart
-    cart.push();
+//     //add to cart
+//     cart.push();
 
-}
+// }
 
 
 
