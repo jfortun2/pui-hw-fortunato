@@ -30,6 +30,7 @@ let allGlaze = [
 //Populating the Glazing Drop Down
 let glazeOptions = document.querySelector('#glaze-select');
 
+
 for (let i = 0; i < allGlaze.length; i++) {
     let glazeSelection = document.createElement("option");
     glazeSelection.textContent = allGlaze[i].glaze;
