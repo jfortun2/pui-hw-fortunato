@@ -157,89 +157,82 @@ document.querySelector("#applepicture").src = rolls[rollType].imageFile;
 document.querySelector("#price").innerText = "$" + rolls[rollType].basePrice;
 
 
+//Creating new roll object in cart
+function toCart() {
 
+    let r1 = new Roll(rollType, glazeChoice, packChoice, rolls[rollType].basePrice)
+    console.log(r1);
 
-
-//Hw 5
-
-//make cart set 
-let cartSet = new Set();
-
-
-//Creating roll objects
-
-let calculatedPrice = (Roll.basePrice + glazeChoice) * packChoice.toFixed(2);
-
-//Creating roll objects
-
-function createNewRoll() {
-    let roll = new Roll(rollType, glazeChoice, packChoice, rolls[rollType].basePrice, calculatedPrice)
-    cartSet.add(roll);
-    console.log(roll);
-    return roll;
+    //add to cart
+    cart.push(r1);
 
 }
 
 
-function createElement(roll) {
-    //cloning the roll template
-    const template = document.querySelector("#templateCart");
-    const clone = template.textContent.cloneNode(true);
+// //Hw 5
 
-    //connecting to roll.element
-    let element = clone.querySelector(".itemdescription"); //WHAT IS MY ROLL ELEMENT
-    //roll.element = clone.querySelector(".roll"); //WHAT IS MY ROLL ELEMENT
-
-    //delete
-    const btnRemove = roll.element.querySelector(".caption");
-    console.log(btnRemove);
-    btnRemove.addEventListener('click', () => {
-        deleteNote(roll);
-    });
+// //make cart set 
+// let cartSet = new Set();
 
 
-    //adding roll to the DOM 
-    //finding parent
+// //Creating roll objects
 
-    const rollListElement = document.querySelector("#templateCart");
-    rollListElement.prepend(element);
+// let calculatedPrice = (Roll.basePrice + glazeChoice) * packChoice.toFixed(2);
 
-    //populating the roll clone with the actual notecard content
-    updateElement(roll);
+// //Creating roll objects
 
-}
-
-function updateElement(roll) {
-    const rollImageElement = roll.element.querySelector(".roll-thumbnail");
-    let rollNameElement = roll.element.querySelector()
-    let rollGlazingElement
-    let rollPackSizeElement
-    let rollCalculatedPricElement
-
-}
-
-function removeRoll(roll) {
-    roll.element.remove();
-    cartSet.delete(roll);
-}
-
-
-
-
-
-
-// //Creating new roll object in cart
-// function toCart() {
-
-
-
-//     // let r1 = new Roll(rollType, glazeChoice, packChoice, rolls[rollType].basePrice)
-//     // console.log(r1);
-
-//     //add to cart
-//     cart.push();
+// function createNewRoll() {
+//     let roll = new Roll(rollType, glazeChoice, packChoice, rolls[rollType].basePrice, calculatedPrice)
+//     cartSet.add(roll);
+//     console.log(roll);
+//     return roll;
 
 // }
+
+
+// function createElement(roll) {
+//     //cloning the roll template
+//     const template = document.querySelector("#templateCart");
+//     const clone = template.textContent.cloneNode(true);
+
+//     //connecting to roll.element
+//     let element = clone.querySelector(".itemdescription"); //WHAT IS MY ROLL ELEMENT
+//     //roll.element = clone.querySelector(".roll"); //WHAT IS MY ROLL ELEMENT
+
+//     //delete
+//     const btnRemove = roll.element.querySelector(".caption");
+//     console.log(btnRemove);
+//     btnRemove.addEventListener('click', () => {
+//         deleteNote(roll);
+//     });
+
+
+//     //adding roll to the DOM 
+//     //finding parent
+
+//     const rollListElement = document.querySelector("#templateCart");
+//     rollListElement.prepend(element);
+
+//     //populating the roll clone with the actual notecard content
+//     updateElement(roll);
+
+// }
+
+// function updateElement(roll) {
+//     const rollImageElement = roll.element.querySelector(".roll-thumbnail");
+//     let rollNameElement = roll.element.querySelector()
+//     let rollGlazingElement
+//     let rollPackSizeElement
+//     let rollCalculatedPricElement
+
+// }
+
+// function removeRoll(roll) {
+//     roll.element.remove();
+//     cartSet.delete(roll);
+// }
+
+
 
 
 
