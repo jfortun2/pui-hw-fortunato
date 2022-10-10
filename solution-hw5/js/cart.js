@@ -4,14 +4,14 @@
 
 class Roll {
 
-    constructor(rollType, rollGlazing, packSize, basePrice) {
+    constructor(imageFile, rollType, rollGlazing, packSize, rollPrice, basePrice) {
         this.image = imageFile;
         this.type = rollType;
         this.glazing = rollGlazing;
         this.size = packSize;
         this.basePrice = rollPrice;
         this.calculatedPrice = ((basePrice + rollGlazing) * packSize).toFixed(2);
-        // this.element = null;//zoya said do not need this?
+        this.element = null;
     }
 
 }
@@ -40,24 +40,25 @@ function createNewRoll(imageFile, rollType, rollGlazing, packSize, rollPrice, ca
 function createElement(roll) {
     //cloning the roll template
     const template = document.querySelector("#templateCart");
-    const clone = template.textContent.cloneNode(true);
+    const clone = template.content.cloneNode(true);
 
     //connecting to roll.element
-    let element = clone.querySelector(".itemdescription"); 
+    roll.element = clone.querySelector(".itemdescription"); 
+    console.log("cloning");
 
     //delete
-    const btnRemove = roll.element.querySelector(".caption");
-    console.log(btnRemove);
-    btnRemove.addEventListener('click', () => {
-        deleteNote(roll);
-    });
+    // const btnRemove = roll.element.querySelector(".caption");
+    // console.log(btnRemove);
+    // btnRemove.addEventListener('click', () => {
+    //     deleteNote(roll);
+    // });
 
 
     //adding roll to the DOM 
     //finding parent
 
     const rollListElement = document.querySelector("#templateCart");
-    rollListElement.prepend(element);
+    rollListElement.prepend(roll.element);
 
     //populating the roll clone with the actual notecard content
     updateElement(roll);
@@ -67,15 +68,16 @@ function createElement(roll) {
 function updateElement(roll) {
     let rollImageElement = roll.element.querySelector(".roll-thumbnail");
     let rollNameElement = roll.element.querySelector("#roll-name");
-    let rollGlazingElement = roll.element.quearySelector("#roll-glazing");
-    let rollPackSizeElement = roll.element.quearySelector("#roll-packsize");
+    let rollGlazingElement = roll.element.querySelector("#roll-glazing");
+    let rollPackSizeElement = roll.element.querySelector("#roll-packsize");
     let rollCalculatedPricElement = roll.element.querySelector(".itemprice");
 
 
     rollImageElement.src = roll.image;
     rollNameElement.innerHTML = roll.type;
-    rollGlazingElement.innerHTML = roll.rollGlazing;
-    rollPackSizeElementElement.innerHTML = roll.packSize;
+    rollGlazingElement.innerHTML = roll.glazing;
+    rollPackSizeElement.innerHTML = roll.size;
+    rollBasePriceElement.innerHTML = roll.basePrice;
     rollCalculatedPricElement.innerHTML = roll.calculatedPrice;
 
     
@@ -89,6 +91,7 @@ function removeRoll(roll) {
 }
 
 const rollOne = createNewRoll(
+
     "./Assets/products/original-cinnamon-roll.jpg",
     "Original Cinnamon Roll",
     "Glazing: Keep Original",
@@ -96,6 +99,46 @@ const rollOne = createNewRoll(
     "pretend price"
 
 );
+
+
+const rollTwo = createNewRoll(
+
+    "./Assets/products/original-cinnamon-roll.jpg",
+    "Original Cinnamon Roll",
+    "Glazing: Keep Original",
+    "Pack Size: 1",
+    "pretend price"
+
+);
+
+const rollThree = createNewRoll(
+
+    "./Assets/products/original-cinnamon-roll.jpg",
+    "Original Cinnamon Roll",
+    "Glazing: Keep Original",
+    "Pack Size: 1",
+    "pretend price"
+
+);
+
+const rollFour = createNewRoll(
+
+    "./Assets/products/original-cinnamon-roll.jpg",
+    "Original Cinnamon Roll",
+    "Glazing: Keep Original",
+    "Pack Size: 1",
+    "pretend price"
+
+);
+
+
+
+
+for (const roll of cartSet) {
+    console.log (roll);
+    createElement(roll);
+
+}
 
 
 //for loop for set where it calls each element on load
