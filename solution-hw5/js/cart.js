@@ -2,12 +2,6 @@
 
 
 
-
-
-
-
-
-
 class Roll {
 
     constructor(rollType, rollGlazing, packSize, basePrice) {
@@ -78,8 +72,8 @@ function updateElement(roll) {
     let rollCalculatedPricElement = roll.element.querySelector(".itemprice");
 
 
-    rollImageElement.src = roll.
-    rollNameElement.innerHTML = roll.rollType;
+    rollImageElement.src = roll.image;
+    rollNameElement.innerHTML = roll.type;
     rollGlazingElement.innerHTML = roll.rollGlazing;
     rollPackSizeElementElement.innerHTML = roll.packSize;
     rollCalculatedPricElement.innerHTML = roll.calculatedPrice;
@@ -104,5 +98,5 @@ const rollOne = createNewRoll(
 );
 
 
-
-
+//for loop for set where it calls each element on load
+//calculate price 
