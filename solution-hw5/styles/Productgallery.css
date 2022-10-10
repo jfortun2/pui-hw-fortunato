@@ -252,7 +252,7 @@ button{
     display: flex; 
     flex-direction: row;
     justify-content: space-evenly;
-    border-bottom: 5px solid black;
+    /* border-bottom: 5px solid black; */
 }
 
 
@@ -301,4 +301,9 @@ button{
 
     flex: 4;
 
+}
+
+hr{
+    height:4px;
+    background-color: black;
 }

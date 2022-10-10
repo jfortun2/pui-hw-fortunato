@@ -47,11 +47,11 @@ function createElement(roll) {
     console.log("cloning");
 
     //delete
-    // const btnRemove = roll.element.querySelector(".caption");
-    // console.log(btnRemove);
-    // btnRemove.addEventListener('click', () => {
-    //     deleteNote(roll);
-    // });
+    const btnRemove = roll.element.querySelector(".caption");
+    console.log(btnRemove);
+    btnRemove.addEventListener('click', () => {
+        deleteNote(roll);
+    });
 
 
     //adding roll to the DOM 
@@ -70,25 +70,26 @@ function updateElement(roll) {
     let rollNameElement = roll.element.querySelector("#roll-name");
     let rollGlazingElement = roll.element.querySelector("#roll-glazing");
     let rollPackSizeElement = roll.element.querySelector("#roll-packsize");
-    let rollCalculatedPricElement = roll.element.querySelector(".itemprice");
+    let rollBasePriceElement = roll.element.querySelector(".itemprice")
+    let rollCalculatedPriceElement = roll.element.querySelector(".itemprice");
 
 
     rollImageElement.src = roll.image;
     rollNameElement.innerHTML = roll.type;
     rollGlazingElement.innerHTML = roll.glazing;
     rollPackSizeElement.innerHTML = roll.size;
-    rollBasePriceElement.innerHTML = roll.basePrice;
+    rollBasePriceElement.innerHTML = roll.rollPrice;
     rollCalculatedPricElement.innerHTML = roll.calculatedPrice;
 
     
 }
 
-function removeRoll(roll) {
-    //remove DOM object
-    roll.element.remove();
-    //Remove from cart set
-    cartSet.delete(roll);
-}
+// function removeRoll(roll) {
+//     //remove DOM object
+//     roll.element.remove();
+//     //Remove from cart set
+//     cartSet.delete(roll);
+// }
 
 const rollOne = createNewRoll(
 
@@ -140,6 +141,11 @@ for (const roll of cartSet) {
 
 }
 
+// function calculatePriceTotal () {
+//     let priceTotal = 0;
+//     for (let )
+
+// }
 
 //for loop for set where it calls each element on load
 //calculate price 

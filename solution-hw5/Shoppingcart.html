@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>Shopping Cart</title>
   <link rel="stylesheet" href="styles/Productgallery.css">
-  <script src="js/cart.js" defer></script>
+  <script src="js/newCart.js" defer></script>
 </head>
 
 <body>
@@ -37,42 +37,11 @@
 
       <div class="cartright">
 
-        <div id=cartList>
-
-          <template id="templateCart">
-
-            <div class="itemdescription">
-
-              <div class="itemimage">
-
-                <img class="img" class="roll-thumbnail" src="./Assets/products/original-cinnamon-roll.jpg" width="150"
-                  alt="Cinnamon roll on white dish with cinnomon sticks.">
-                <button type ="button" class = "caption"> Remove </button>
-
-              </div>
-
-              <div class="itemcaption">
-
-                <p id="roll-name"> Original Cinnamon Roll</p>
-                <p id="roll-glazing"> Glazing: Keep Original</p>
-                <p id="roll-packsize">Pack Size: 1</p>
-
-              </div>
-
-              <div class="itemprice">
-
-                <p>$2.49</p>
-
-              </div>
 
 
-            </div>
+<div class="cartContainer">
 
-          </template>
-
-        </div>
-
-        <!-- <div class="itemdescriptionline">
+        <div class="itemdescriptionline">
 
           <div class="itemimage">
 
@@ -98,8 +67,10 @@
           </div>
 
 
-        </div> -->
+        </div>
 
+      </div>
+      <hr>
 
         <div class="cartprice">
 
@@ -138,6 +109,39 @@
       </div>
 
   </main>
+
+
+  <template id="templateCart">
+
+    <div class="itemdescriptionline">
+
+      <div class="itemimage">
+
+        <img class="img" src="./Assets/products/double-chocolate-cinnamon-roll.jpg" width="150"
+          alt="Cinnamon roll on white dish with cinnomon sticks.">
+
+        <p class="caption"> Remove </p>
+
+      </div>
+
+      <div class="itemcaption">
+
+        <p class=".cartElementText" id="name"> Double Chocolate Cinnamon Roll</p>
+        <p class=".cartElementText" id="glazing">Glazing: Sugar Milk</p>
+        <p class=".cartElementText" id="size"> Pack Size: 6</p>
+
+      </div>
+
+      <div class="itemprice">
+
+        <p>$27.45</p>
+
+      </div>
+
+
+    </div>
+
+  </template>
 
 </body>
 
