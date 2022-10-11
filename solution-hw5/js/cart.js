@@ -4,13 +4,11 @@
 
 class Roll {
 
-    constructor(imageFile, rollType, rollGlazing, packSize, rollPrice, basePrice) {
-        this.image = imageFile;
+    constructor(rollType, rollGlazing, packSize, rollPrice) {
         this.type = rollType;
         this.glazing = rollGlazing;
         this.size = packSize;
         this.basePrice = rollPrice;
-        this.calculatedPrice = ((basePrice + rollGlazing) * packSize).toFixed(2);
         this.element = null;
     }
 
@@ -20,132 +18,92 @@ class Roll {
 //make cart set 
 let cartSet = new Set();
 
-
-//Creating roll objects
-
-// let calculatedPrice = (Roll.basePrice + glazeChoice) * packChoice.toFixed(2);
-
-//Creating roll objects
-
-
-function createNewRoll(imageFile, rollType, rollGlazing, packSize, rollPrice, calculatedPrice ) {
-    let roll = new Roll(imageFile, rollType, rollGlazing, packSize, rollPrice, calculatedPrice)
+//Creating function to make new rolls and add them to my cart set 
+function createNewRoll(rollType, rollGlazing, packSize, rollPrice ) {
+    let roll = new Roll(rollType, rollGlazing, packSize, rollPrice)
     cartSet.add(roll);
-    console.log(roll);
     return roll;
 
 }
 
 
+//creating a function to make the DOM element
 function createElement(roll) {
+
     //cloning the roll template
     const template = document.querySelector("#templateCart");
     const clone = template.content.cloneNode(true);
 
     //connecting to roll.element
-    roll.element = clone.querySelector(".itemdescription"); 
-    console.log("cloning");
+    roll.element = clone.querySelector(".itemdescriptionline"); 
 
-    //delete
+
+
+    //Selecting remove button and adding event listener, removing roll
     const btnRemove = roll.element.querySelector(".caption");
-    console.log(btnRemove);
     btnRemove.addEventListener('click', () => {
-        deleteNote(roll);
+        removeRoll(roll);
     });
-
-
-    //adding roll to the DOM 
-    //finding parent
-
-    const rollListElement = document.querySelector("#templateCart");
-    rollListElement.prepend(roll.element);
+    
 
     //populating the roll clone with the actual notecard content
     updateElement(roll);
-
+    const rollListElement = document.querySelector(".cartContainer");
+    rollListElement.append(roll.element);
 }
 
+
+//defining glaze values
+let allGlaze = {
+    'Keep Original': 0.0,
+    'Sugar Milk': 0.0,
+    'Vanilla Milk': 0.5,
+    'Double Chocolate': 1.5,
+}
+
+//setting an outside total price variable
+let totalPrice = 0
+
+//calculating price per object and updating outside total
+function calculatedPrice (rollGlazing,rollPrice, packSize){ 
+    total = ((rollGlazing+packSize)*rollPrice);
+    totalPrice = totalPrice + total;
+    return total.toFixed(2);
+
+ }
+
+ //function to replace element items with individual information
 function updateElement(roll) {
-    let rollImageElement = roll.element.querySelector(".roll-thumbnail");
-    let rollNameElement = roll.element.querySelector("#roll-name");
-    let rollGlazingElement = roll.element.querySelector("#roll-glazing");
-    let rollPackSizeElement = roll.element.querySelector("#roll-packsize");
-    let rollBasePriceElement = roll.element.querySelector(".itemprice")
-    let rollCalculatedPriceElement = roll.element.querySelector(".itemprice");
-
-
-    rollImageElement.src = roll.image;
-    rollNameElement.innerHTML = roll.type;
-    rollGlazingElement.innerHTML = roll.glazing;
-    rollPackSizeElement.innerHTML = roll.size;
-    rollBasePriceElement.innerHTML = roll.rollPrice;
-    rollCalculatedPricElement.innerHTML = roll.calculatedPrice;
-
+    
+    roll.element.querySelector("#name").innerText = roll.type + ' Cinnamon Roll';
+    roll.element.querySelector("#glazing").innerText = "Glazing:" + " " + roll.glazing;
+    roll.element.querySelector("#size").innerText = "Pack Size:" + " " + roll.size;
+    roll.element.querySelector(".itemprice").innerText = calculatedPrice(allGlaze[roll.glazing],roll.basePrice, roll.size);
+    roll.element.querySelector("img").src = "./Assets/products/"+roll.type.toLowerCase()+"-cinnamon-roll.jpg";
     
 }
 
-// function removeRoll(roll) {
-//     //remove DOM object
-//     roll.element.remove();
-//     //Remove from cart set
-//     cartSet.delete(roll);
-// }
+//removing roll from the DOM and cart set
+function removeRoll(roll) {
+    
+    //remove DOM object
+    roll.element.remove();
 
-const rollOne = createNewRoll(
-
-    "./Assets/products/original-cinnamon-roll.jpg",
-    "Original Cinnamon Roll",
-    "Glazing: Keep Original",
-    "Pack Size: 1",
-    "pretend price"
-
-);
-
-
-const rollTwo = createNewRoll(
-
-    "./Assets/products/original-cinnamon-roll.jpg",
-    "Original Cinnamon Roll",
-    "Glazing: Keep Original",
-    "Pack Size: 1",
-    "pretend price"
-
-);
-
-const rollThree = createNewRoll(
-
-    "./Assets/products/original-cinnamon-roll.jpg",
-    "Original Cinnamon Roll",
-    "Glazing: Keep Original",
-    "Pack Size: 1",
-    "pretend price"
-
-);
-
-const rollFour = createNewRoll(
-
-    "./Assets/products/original-cinnamon-roll.jpg",
-    "Original Cinnamon Roll",
-    "Glazing: Keep Original",
-    "Pack Size: 1",
-    "pretend price"
-
-);
-
-
-
-
-for (const roll of cartSet) {
-    console.log (roll);
-    createElement(roll);
-
+    //Remove from cart set
+    cartSet.delete(roll);
 }
 
-// function calculatePriceTotal () {
-//     let priceTotal = 0;
-//     for (let )
+//Creating roll objects
 
-// }
+let roll1 = createNewRoll("Original", "Sugar Milk", 1, 2.49);
+let roll2 = createNewRoll("Walnut", "Vanilla Milk", 12, 3.49);
+let roll3 = createNewRoll("Raisin", "Sugar Milk", 3, 2.99);
+let roll4 = createNewRoll("Apple", "Keep Original", 3, 3.49);
 
-//for loop for set where it calls each element on load
-//calculate price 
+//creating an element for each roll object
+for (roll of cartSet) {
+    createElement(roll);
+}
+
+//replacing final price text with calculated total
+document.querySelector(".cartnumber").innerText = "$" + totalPrice.toFixed(2);
