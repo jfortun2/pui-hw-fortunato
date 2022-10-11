@@ -21,8 +21,9 @@ cart.add(roll3);
 cart.add(roll4);
 
 
-function calculatedPrice (a,b,c){
-    return((a+b)*c);
+function calculatedPrice (rollGlazing,rollPrice,total){
+    let total = 0
+    return((rollGlazing+packSize)*rollPrice);
 }
 
 
@@ -33,6 +34,7 @@ for(roll of cart){
     itemClone.querySelector("#name").innerText = roll.type;
     itemClone.querySelector("#glazing").innerText = "Glazing:" + " " + roll.glazing;
     itemClone.querySelector("#size").innerText = "Pack Size:" + " " + roll.size;
+    //site a source
     itemClone.querySelector("img").src = "./Assets/products/"+roll.type.toLowerCase()+"-cinnamon-roll.jpg";
     
     
