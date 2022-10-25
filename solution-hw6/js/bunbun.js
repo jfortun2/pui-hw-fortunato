@@ -150,7 +150,6 @@ const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
 const rollType = params.get("roll");
 
-console.log(rollType)
 
 document.querySelector("#detailsheader").innerHTML = rollType + " " + "Cinnamon Roll";
 document.querySelector("#applepicture").src = rolls[rollType].imageFile;
