@@ -95,10 +95,10 @@ function removeRoll(roll) {
 
 //Creating roll objects
 
-let roll1 = createNewRoll("Original", "Sugar Milk", 1, 2.49);
-let roll2 = createNewRoll("Walnut", "Vanilla Milk", 12, 3.49);
-let roll3 = createNewRoll("Raisin", "Sugar Milk", 3, 2.99);
-let roll4 = createNewRoll("Apple", "Keep Original", 3, 3.49);
+// let roll1 = createNewRoll("Original", "Sugar Milk", 1, 2.49);
+// let roll2 = createNewRoll("Walnut", "Vanilla Milk", 12, 3.49);
+// let roll3 = createNewRoll("Raisin", "Sugar Milk", 3, 2.99);
+// let roll4 = createNewRoll("Apple", "Keep Original", 3, 3.49);
 
 //creating an element for each roll object
 for (roll of cartSet) {
