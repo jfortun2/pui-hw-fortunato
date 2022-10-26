@@ -14,6 +14,20 @@ class Roll {
 
 }
 
+let glazingToPrice = {
+    "Keep Original": 0,
+    "Sugar Milk": 0,
+    "Vanilla Milk": 0.5,
+    "Double Chocolate": 1.5
+}
+
+let packPricetoSize = {
+    1:1,
+    3:3,
+    5:6,
+    10:12
+}
+
 
 //make cart set 
 let cartSet = new Set();
@@ -65,12 +79,13 @@ let allGlaze = [0.0, 0.0, 0.5, 1.5];
 const glazings = ["Keep Original", "Sugar Milk", "Vanilla Milk", "Double Chocolate"];
 
 //setting an outside total price variable
-let totalPrice = 0;
+let totalPrice = 0
 
 //calculating price per object and updating outside total
 function calculatedPrice (rollGlazing,rollPrice, packSize){ 
-    total = ((rollGlazing+packSize)*rollPrice);
-    totalPrice = totalPrice + total;
+    total = ((rollGlazing+rollPrice)*packSize);
+    console.log(total);
+    totalPrice = totalPrice + parseFloat(total);
     return total.toFixed(2);
 
  }
@@ -80,9 +95,9 @@ function updateElement(roll) {
     
     roll.element.querySelector("#name").innerText = roll.type + ' Cinnamon Roll';
     roll.element.querySelector("#glazing").innerText = "Glazing:" + " " + roll.glazing;
-    roll.element.querySelector("#size").innerText = "Pack Size:" + " " + roll.size;  
+    roll.element.querySelector("#size").innerText = "Pack Size:" + " " + packPricetoSize[roll.size];  
     console.log(roll.glazing);  
-    roll.element.querySelector(".itemprice").innerText = calculatedPrice(parseFloat(roll.glazing),roll.basePrice, roll.size);
+    roll.element.querySelector(".itemprice").innerText = calculatedPrice(parseFloat(glazingToPrice[roll.glazing]),roll.basePrice, roll.size);
     roll.element.querySelector("img").src = "./Assets/products/"+roll.type.toLowerCase()+"-cinnamon-roll.jpg";
 }
 
@@ -94,17 +109,17 @@ function removeRoll(roll) {
 
     //Remove from cart set
     cartSet.delete(roll);
-
-    localStorage.setItem("storedRolls", JSON.stringify(Array.from(cartSet)));
-    totalPrice = totalPrice - calculatedPrice(parseFloat(roll.glazing),roll.basePrice, roll.size);
+    totalPrice =  totalPrice - calculatedPrice(parseFloat(glazingToPrice[roll.glazing]),roll.basePrice, roll.size);
     document.querySelector(".cartnumber").innerText = "$" + totalPrice.toFixed(2);
 
+
+    localStorage.setItem("storedRolls", JSON.stringify(Array.from(cartSet)));
+    
 
     
 
 
 }
-
 
 
 for (roll of cartSet) {
@@ -113,5 +128,4 @@ for (roll of cartSet) {
 
 //replacing final price text with calculated total
 document.querySelector(".cartnumber").innerText = "$" + totalPrice.toFixed(2);
-
 

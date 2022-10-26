@@ -82,6 +82,7 @@ for (let i = 0; i < allGlaze.length; i++) {
 //create variables for price calculation
 let basePrice = 2.49;
 let glazeChoice = 0;
+let glazing = "Keep Original";
 let packChoice = 1;
 let finalPrice;
 
@@ -97,6 +98,7 @@ function glazingChange(element) {
         if (allGlaze[i].glaze == element.value) {
 
             glazeChoice = allGlaze[i].price;
+            glazing = allGlaze[i].glaze;
 
         }
     }
@@ -136,7 +138,8 @@ class Roll {
         this.glazing = rollGlazing;
         this.size = packSize;
         this.basePrice = basePrice;
-        
+        // this.calculatedPrice = ((basePrice + rollGlazing) * packSize).toFixed(2);
+        // this.element = null;
     }
 
 }
@@ -162,7 +165,7 @@ document.querySelector("#price").innerText = "$" + rolls[rollType].basePrice;
 //Creating new roll object in cart
 function toCart() {
 
-    let r1 = new Roll(rollType, glazeChoice, packChoice, rolls[rollType].basePrice)
+    let r1 = new Roll(rollType, glazing, packChoice, rolls[rollType].basePrice)
     console.log(r1);
 
     //add to cart
@@ -170,6 +173,10 @@ function toCart() {
 
     saveToLocalStorage();
 
+    // //local storage and changing my cart array into a string
+    // localStorage.setItem('storedRolls', JSON.stringify(cart));
+
+    console.log('adding to storage');
 
 
 }
