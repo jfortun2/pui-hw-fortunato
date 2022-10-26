@@ -115,7 +115,6 @@ function removeRoll(roll) {
 
     localStorage.setItem("storedRolls", JSON.stringify(Array.from(cartSet)));
     
-
     
 
 

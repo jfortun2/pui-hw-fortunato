@@ -176,7 +176,7 @@ function toCart() {
     // //local storage and changing my cart array into a string
     // localStorage.setItem('storedRolls', JSON.stringify(cart));
 
-    console.log('adding to storage');
+    console.log(cartSet);
 
 
 }
