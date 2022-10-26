@@ -65,7 +65,7 @@ let allGlaze = [0.0, 0.0, 0.5, 1.5];
 const glazings = ["Keep Original", "Sugar Milk", "Vanilla Milk", "Double Chocolate"];
 
 //setting an outside total price variable
-let totalPrice = 0
+let totalPrice = 0;
 
 //calculating price per object and updating outside total
 function calculatedPrice (rollGlazing,rollPrice, packSize){ 
@@ -96,20 +96,16 @@ function removeRoll(roll) {
     cartSet.delete(roll);
 
     localStorage.setItem("storedRolls", JSON.stringify(Array.from(cartSet)));
+    totalPrice = totalPrice - calculatedPrice(parseFloat(roll.glazing),roll.basePrice, roll.size);
+    document.querySelector(".cartnumber").innerText = "$" + totalPrice.toFixed(2);
+
 
     
 
 
 }
 
-//Creating roll objects
 
-// let roll1 = createNewRoll("Original", "Sugar Milk", 1, 2.49);
-// let roll2 = createNewRoll("Walnut", "Vanilla Milk", 12, 3.49);
-// let roll3 = createNewRoll("Raisin", "Sugar Milk", 3, 2.99);
-// let roll4 = createNewRoll("Apple", "Keep Original", 3, 3.49);
-
-//creating an element for each roll object
 
 for (roll of cartSet) {
     createElement(roll);
@@ -119,4 +115,3 @@ for (roll of cartSet) {
 document.querySelector(".cartnumber").innerText = "$" + totalPrice.toFixed(2);
 
 
-// updateElement(cartSet);
