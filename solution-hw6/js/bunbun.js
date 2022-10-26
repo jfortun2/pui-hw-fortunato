@@ -138,8 +138,7 @@ class Roll {
         this.glazing = rollGlazing;
         this.size = packSize;
         this.basePrice = basePrice;
-        // this.calculatedPrice = ((basePrice + rollGlazing) * packSize).toFixed(2);
-        // this.element = null;
+        
     }
 
 }
@@ -172,9 +171,6 @@ function toCart() {
     cart.push(r1);
 
     saveToLocalStorage();
-
-    // //local storage and changing my cart array into a string
-    // localStorage.setItem('storedRolls', JSON.stringify(cart));
 
     console.log(cartSet);
 
