@@ -4,22 +4,22 @@
 let allGlaze = [
 
     {
-        glaze: 'Keep original',
+        glaze: 'Keep Original',
         price: 0.00,
     },
 
     {
-        glaze: 'Sugar milk',
+        glaze: 'Sugar Milk',
         price: 0.00,
     },
 
     {
-        glaze: 'Vanilla milk',
+        glaze: 'Vanilla Milk',
         price: 0.50,
     },
 
     {
-        glaze: 'Double chocolate',
+        glaze: 'Double Chocolate',
         price: 1.50,
     }
 ];
@@ -150,6 +150,9 @@ const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
 const rollType = params.get("roll");
 
+let cart = [];
+retrieveFromLocalStorage();
+
 
 document.querySelector("#detailsheader").innerHTML = rollType + " " + "Cinnamon Roll";
 document.querySelector("#applepicture").src = rolls[rollType].imageFile;
@@ -178,33 +181,18 @@ function toCart() {
 
 
 
-let cart = [];
-let localCart = localStorage.getItem('storedRolls');
-if (localCart)cartSet = Array.from(JSON.parse(localCart));
+
 
 function saveToLocalStorage(){
-    
     //local storage and changing my cart array into a string
     localStorage.setItem('storedRolls', JSON.stringify(cart));
-
-
 }
 
 
 function retrieveFromLocalStorage(){
-
     const cartArrayString = localStorage.getItem('storedRolls');
-    let cart = JSON.parse(cartArrayString);
-
+    if (cartArrayString) cart = Array.from(JSON.parse(cartArrayString));``
 }
-
-if (localStorage.getItem('storedRolls') != null) {
-
-        retrieveFromLocalStorage();
-
-}
-
-
 
 
 

@@ -20,7 +20,7 @@ let cartSet = new Set();
 
 //new h6 populating cart
 let localCart = localStorage.getItem('storedRolls');
-if(localCart)cartSet = new Set(Array.from(JSON.parse(localCart)));
+if(localCart) cartSet = new Set(Array.from(JSON.parse(localCart)));
 
 
 
@@ -61,12 +61,8 @@ function createElement(roll) {
 
 
 //defining glaze values
-let allGlaze = {
-    'Keep Original': 0.0,
-    'Sugar Milk': 0.0,
-    'Vanilla Milk': 0.5,
-    'Double Chocolate': 1.5,
-}
+let allGlaze = [0.0, 0.0, 0.5, 1.5];
+const glazings = ["Keep Original", "Sugar Milk", "Vanilla Milk", "Double Chocolate"];
 
 //setting an outside total price variable
 let totalPrice = 0
@@ -84,10 +80,10 @@ function updateElement(roll) {
     
     roll.element.querySelector("#name").innerText = roll.type + ' Cinnamon Roll';
     roll.element.querySelector("#glazing").innerText = "Glazing:" + " " + roll.glazing;
-    roll.element.querySelector("#size").innerText = "Pack Size:" + " " + roll.size;    
-    roll.element.querySelector(".itemprice").innerText = calculatedPrice(allGlaze[roll.glazing],roll.basePrice, roll.size);
+    roll.element.querySelector("#size").innerText = "Pack Size:" + " " + roll.size;  
+    console.log(roll.glazing);  
+    roll.element.querySelector(".itemprice").innerText = calculatedPrice(parseFloat(roll.glazing),roll.basePrice, roll.size);
     roll.element.querySelector("img").src = "./Assets/products/"+roll.type.toLowerCase()+"-cinnamon-roll.jpg";
-    
 }
 
 //removing roll from the DOM and cart set
@@ -96,10 +92,12 @@ function removeRoll(roll) {
     //remove DOM object
     roll.element.remove();
 
-    localStorage.setItem("storedRolls", JSON.stringify(cartSet));
-
     //Remove from cart set
     cartSet.delete(roll);
+
+    localStorage.setItem("storedRolls", JSON.stringify(Array.from(cartSet)));
+
+    
 
 
 }
@@ -121,4 +119,4 @@ for (roll of cartSet) {
 document.querySelector(".cartnumber").innerText = "$" + totalPrice.toFixed(2);
 
 
-updateElement(cartSet);
+// updateElement(cartSet);
