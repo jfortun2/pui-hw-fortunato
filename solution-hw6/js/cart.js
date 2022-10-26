@@ -18,6 +18,13 @@ class Roll {
 //make cart set 
 let cartSet = new Set();
 
+//new h6 populating cart
+let localCart = localStorage.getItem('storedRolls');
+if(localCart)cartSet = new Set(Array.from(JSON.parse(localCart)));
+
+
+
+
 //Creating function to make new rolls and add them to my cart set 
 function createNewRoll(rollType, rollGlazing, packSize, rollPrice ) {
     let roll = new Roll(rollType, rollGlazing, packSize, rollPrice)
@@ -77,7 +84,7 @@ function updateElement(roll) {
     
     roll.element.querySelector("#name").innerText = roll.type + ' Cinnamon Roll';
     roll.element.querySelector("#glazing").innerText = "Glazing:" + " " + roll.glazing;
-    roll.element.querySelector("#size").innerText = "Pack Size:" + " " + roll.size;
+    roll.element.querySelector("#size").innerText = "Pack Size:" + " " + roll.size;    
     roll.element.querySelector(".itemprice").innerText = calculatedPrice(allGlaze[roll.glazing],roll.basePrice, roll.size);
     roll.element.querySelector("img").src = "./Assets/products/"+roll.type.toLowerCase()+"-cinnamon-roll.jpg";
     
@@ -89,8 +96,12 @@ function removeRoll(roll) {
     //remove DOM object
     roll.element.remove();
 
+    localStorage.setItem("storedRolls", JSON.stringify(cartSet));
+
     //Remove from cart set
     cartSet.delete(roll);
+
+
 }
 
 //Creating roll objects
@@ -101,9 +112,13 @@ function removeRoll(roll) {
 // let roll4 = createNewRoll("Apple", "Keep Original", 3, 3.49);
 
 //creating an element for each roll object
+
 for (roll of cartSet) {
     createElement(roll);
 }
 
 //replacing final price text with calculated total
 document.querySelector(".cartnumber").innerText = "$" + totalPrice.toFixed(2);
+
+
+updateElement(cartSet);

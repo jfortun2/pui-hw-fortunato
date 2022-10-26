@@ -156,6 +156,7 @@ document.querySelector("#applepicture").src = rolls[rollType].imageFile;
 document.querySelector("#price").innerText = "$" + rolls[rollType].basePrice;
 
 
+
 //Creating new roll object in cart
 function toCart() {
 
@@ -163,91 +164,65 @@ function toCart() {
     console.log(r1);
 
     //add to cart
-    cartSet.add(r1);
-
-}
-
-
-//hw 6
-
-let cart = [];
-
-
-function submitRoll () {
-
-    
-}
-
-//submit roll function
-
-//add new roll to cart array
-
-
-
-
-// class Roll {
-
-//     constructor(rollType, rollGlazing, packSize, rollPrice) {
-//         this.type = rollType;
-//         this.glazing = rollGlazing;
-//         this.size = packSize;
-//         this.basePrice = rollPrice;
-//         this.element = null;
-//     }
-
-// }
-
-
-
-
-let cartSet = new Set();
-
-function createNewRoll(rollType, rollGlazing, packSize, rollPrice) {
-    let roll = new Roll(rollType, rollGlazing, packSize, rollPrice)
-    cartSet.push(roll);
-    console.log ('roll created');
-
-    return roll;
-}
-
-
-function createElement(roll) {
-
-    //cloning the roll template
-    const template = document.querySelector("#templateCart");
-    const clone = template.content.cloneNode(true);
-
-    //connecting to roll.element
-    roll.element = clone.querySelector(".itemdescriptionline"); 
-
-
-
-    //Selecting remove button and adding event listener, removing roll
-    const btnRemove = roll.element.querySelector(".caption");
-    btnRemove.addEventListener('click', () => {
-        removeRoll(roll);
-    });
-    
-
-    //populating the roll clone with the actual notecard content
-    updateElement(roll);
-    const rollListElement = document.querySelector(".cartContainer");
-    rollListElement.append(roll.element);
+    cart.push(r1);
 
     saveToLocalStorage();
+
+    // //local storage and changing my cart array into a string
+    // localStorage.setItem('storedRolls', JSON.stringify(cart));
+
+    console.log('adding to storage');
+
+
 }
 
 
 
-function saveToLocalStorage () {
+let cart = [];
+let localCart = localStorage.getItem('storedRolls');
+if (localCart)cartSet = Array.from(JSON.parse(localCart));
 
-    //JSON convert
-    const cartArrayString = JSON.stringify(cart);
-    console.log (cartArrayString);
+function saveToLocalStorage(){
+    
+    //local storage and changing my cart array into a string
+    localStorage.setItem('storedRolls', JSON.stringify(cart));
 
-    //save to local storage
-    localStorage.setItem ('storedRolls', cartArrayString);
+
 }
+
+
+function retrieveFromLocalStorage(){
+
+    const cartArrayString = localStorage.getItem('storedRolls');
+    let cart = JSON.parse(cartArrayString);
+
+}
+
+if (localStorage.getItem('storedRolls') != null) {
+
+        retrieveFromLocalStorage();
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
